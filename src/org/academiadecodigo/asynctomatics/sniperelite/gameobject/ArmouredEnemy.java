@@ -17,20 +17,18 @@ public class ArmouredEnemy extends Enemy {
     @Override
     public void hit(int damage) {
 
-        // if armour is totally destroyed, destroy health
-        if (armour <= 0) {
-            super.hit(damage);
-            System.out.println("My armour is down!");
-            return;
+        // if armour is not destroyed, it will take damage
+        if (armour > 0) {
+            armour -= damage;
         }
-
-        // else armour is damaged
-        armour -= damage;
+        // if armour totally destroyed, get super method to destroy health
+        System.out.println("My armour is down!");
+        super.hit(damage);
     }
 
     // override the super class method
     @Override
-    public void getMessage() {
-        System.out.println("  ** ENEMY? No, I'm your nightmare! **");
+    public String getMessage() {
+        return "  ** ENEMY? No, I'm your nightmare! My armour is fucking strong! **";
     }
 }

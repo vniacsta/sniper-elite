@@ -1,9 +1,8 @@
 package org.academiadecodigo.asynctomatics.sniperelite;
 
 import org.academiadecodigo.asynctomatics.sniperelite.gameobject.*;
-import org.academiadecodigo.asynctomatics.sniperelite.interfaces.Destroyable;
-
-import java.util.Arrays;
+import org.academiadecodigo.asynctomatics.sniperelite.gameobject.interfaces.Destroyable;
+import org.academiadecodigo.asynctomatics.sniperelite.gunObject.SniperRifle;
 
 public class Game {
 
@@ -36,19 +35,20 @@ public class Game {
         // iterate through the array and shoot only the enemies
         for (GameObject object : objects) {
 
-            // check the object
-            object.getMessage();
+            // display the object
+            System.out.println(object.getMessage());
 
             // do not hit trees
             if (object instanceof Tree) {
                 continue;
             }
 
-            // cast destroyables so the game knows who to shoot
+            // cast destroyable objects so the game knows who to shoot
             Destroyable target = (Destroyable) object;
 
             // keep shooting the same enemy until it is dead
-            while (!(target.isDestroyed())) {
+            while (!target.isDestroyed()) {
+                System.out.println("Taking the shoot...");
                 // call method from sniper with my target
                 sniper.shoot(target);
                 // increment shots fired
@@ -70,23 +70,19 @@ public class Game {
         for (int i = 0; i < objects.length; i++) {
 
             // define a higher probability of having enemies than trees
-            int random1 = (int) (Math.random() * 30);
-
-            if (random1 < 10) {
+            if (Math.random() < 0.3) {
                 objects[i] = new Tree();
 
-            } else if (random1 > 10) {
+            } else if (Math.random() >= 0.3) {
 
-                // create new random to populate the array with destroyables
-                int random2 = (int) (Math.random() * 30);
-
-                if (random2 > 20) {
+                // populate the array with destroyable objects
+                if (Math.random() >= 0.7) {
                     objects[i] = new ArmouredEnemy(40, 20);
 
-                } else if (random2 > 10) {
+                } else if (Math.random() >= 0.3) {
                     objects[i] = new SoldierEnemy(40);
 
-                } else if (random2 < 10) {
+                } else if (Math.random() < 0.3) {
                     objects[i] = new Barrel();
                 }
             }

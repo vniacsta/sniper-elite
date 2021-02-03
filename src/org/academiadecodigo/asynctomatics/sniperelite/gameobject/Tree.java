@@ -7,7 +7,7 @@ public class Tree extends GameObject {
 
     // override the string method
     @Override
-    public void getMessage() {
-        System.out.println("  ** I'm a tree, please don't kill me! **");
+    public String getMessage() {
+        return "  ** I'm a tree, please don't kill me! **";
     }
 }

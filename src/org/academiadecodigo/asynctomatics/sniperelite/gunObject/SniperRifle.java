@@ -1,6 +1,6 @@
-package org.academiadecodigo.asynctomatics.sniperelite;
+package org.academiadecodigo.asynctomatics.sniperelite.gunObject;
 
-import org.academiadecodigo.asynctomatics.sniperelite.interfaces.Destroyable;
+import org.academiadecodigo.asynctomatics.sniperelite.gameobject.interfaces.Destroyable;
 
 public class SniperRifle {
 
@@ -16,9 +16,7 @@ public class SniperRifle {
     // when shooting has a probability of hitting the target
     public void shoot(Destroyable target) {
 
-        int random = (int) (Math.random() * 5);
-
-        if (random <= 3) {
+        if (Math.random() > 0.3) {
             target.hit(bulletDamage);
             System.out.println("Hit! Die motherfucker! Haaa!");
 

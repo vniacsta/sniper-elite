@@ -1,6 +1,6 @@
 package org.academiadecodigo.asynctomatics.sniperelite.gameobject;
 
-import org.academiadecodigo.asynctomatics.sniperelite.interfaces.Destroyable;
+import org.academiadecodigo.asynctomatics.sniperelite.gameobject.interfaces.Destroyable;
 
 abstract public class Enemy extends GameObject implements Destroyable {
 
@@ -21,14 +21,14 @@ abstract public class Enemy extends GameObject implements Destroyable {
     @Override
     public void hit(int damage) {
 
-        // when enemy has no more health, he's destroyed
-        if (health <= 0) {
-            destroyed = true;
-            System.out.println("Enemy is dead!");
-            return;
+        // if it has health, decrease health
+        if (health > 0) {
+            health -= damage;
+            System.out.println("Ohhh... I'm hit! Damage: " + health + ".");
         }
-        // else decrease health
-        health -= damage;
+        // when enemy has no more health, he's destroyed
+        destroyed = true;
+        System.out.println("Enemy is dead!");
     }
 
     // override method from destroyable
@@ -39,7 +39,7 @@ abstract public class Enemy extends GameObject implements Destroyable {
 
     // override the super class method
     @Override
-    public void getMessage() {
-        System.out.println("  ** ENEMY ALERT! **");
+    public String getMessage() {
+        return "  ** ENEMY ALERT! **";
     }
 }

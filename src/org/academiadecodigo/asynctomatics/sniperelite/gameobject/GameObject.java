@@ -6,5 +6,5 @@ abstract public class GameObject {
     // does not need a constructor
 
     // abstract method to be overridden in subclasses
-    abstract public void getMessage();
+    abstract public String getMessage();
 }

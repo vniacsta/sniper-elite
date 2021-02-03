@@ -11,7 +11,8 @@ public class SoldierEnemy extends Enemy {
 
     // override the super class method
     @Override
-    public void getMessage() {
-        System.out.println("  ** I'm a friendly ENEMY! **");
+    public String getMessage() {
+        return "  ** I'm a friendly ENEMY! **";
     }
+
 }

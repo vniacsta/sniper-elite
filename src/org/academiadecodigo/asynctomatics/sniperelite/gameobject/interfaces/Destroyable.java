@@ -1,4 +1,4 @@
-package org.academiadecodigo.asynctomatics.sniperelite.interfaces;
+package org.academiadecodigo.asynctomatics.sniperelite.gameobject.interfaces;
 
 public interface Destroyable {
 
