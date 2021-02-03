@@ -70,26 +70,21 @@ public class Game {
         for (int i = 0; i < objects.length; i++) {
 
             // define a higher probability of having enemies than trees
-            int random1 = (int) (Math.random() * 30);
+            int random = (int) (Math.random() * 100);
 
-            if (random1 < 10) {
-                objects[i] = new Tree();
-
-            } else {
-
-                int random2 = (int) (Math.random() * 30);
-
-                // populate the array with destroyable objects
-                if (random2 >= 20) {
-                    objects[i] = new ArmouredEnemy(40, 20);
-
-                } else if (random2 >= 10) {
-                    objects[i] = new SoldierEnemy(40);
-
-                } else {
-                    objects[i] = new Barrel();
-                }
+            if (random > 70) {
+                objects[i] = new ArmouredEnemy(40, 20);
+                continue;
             }
+            if (random > 40) {
+                objects[i] = new SoldierEnemy(40);
+                continue;
+            }
+            if (random > 10) {
+                objects[i] = new Barrel();
+                continue;
+            }
+            objects[i] = new Tree();
         }
         return objects;
     }
