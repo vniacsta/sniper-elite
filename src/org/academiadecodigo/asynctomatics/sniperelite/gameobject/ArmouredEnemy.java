@@ -20,9 +20,10 @@ public class ArmouredEnemy extends Enemy {
         // if armour is not destroyed, it will take damage
         if (armour > 0) {
             armour -= damage;
+            System.out.println("My armour is down!");
+            return;
         }
         // if armour totally destroyed, get super method to destroy health
-        System.out.println("My armour is down!");
         super.hit(damage);
     }
 

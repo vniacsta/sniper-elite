@@ -17,11 +17,11 @@ public class SniperRifle {
     public void shoot(Destroyable target) {
 
         if (Math.random() > 0.3) {
+            System.out.println("Hit! It's a hit.");
             target.hit(bulletDamage);
-            System.out.println("Hit! Die motherfucker! Haaa!");
 
         } else {
-            System.out.println("It's a miss");
+            System.out.println("Shit, I missed!");
         }
     }
 }
